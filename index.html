@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechParaTodos</title>
+    
+    <link rel="icon" type="image/png" href="imagens/Logo.png">
+    
+    <!-- bootstrap facilita a vida com o grid e o menu responsivo -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- fonte bonita e fácil de ler, usei Open Sans pq é gratis e bonitinha -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- icones das redes sociais, bem prático -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- meu css personalizado pra ajustar as cores e tal -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- ESSE LINK É PRA QUEM USA TECLADO PULAR O MENU -->
+    <a href="#conteudo-principal" class="visually-hidden focusable bg-primary text-white p-2 position-absolute start-0" style="z-index: 9999; transform: translateY(-100%); transition: transform 0.2s;">
+        Pular para conteúdo principal
+    </a>
+    
+    <!-- VLibras - tradutor de libras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        // iniciar o vlibras
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+        
+        setTimeout(() => {
+            const vwFrame = document.querySelector('iframe[src*="vlibras"]');
+            if (vwFrame && !vwFrame.title) {
+                vwFrame.title = "VLibras - Traduz pra Libras";
+            }
+        }, 2000);
+    </script>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <!-- nav é o menu, tag semantica que ajuda o google e leitores de tela -->
+        <nav class="navbar navbar-expand-lg bg-white shadow-sm" aria-label="Menu principal de navegação">
+            <div class="container">
+                <!-- logo da ong, leva pra home -->
+                <a class="navbar-brand fw-bold fs-3 text-primary d-flex align-items-center" href="#">
+                    <!-- imagem da logo -->
+                    <img src="imagens/Logo.png" alt="" class="me-2" style="height:40px;">
+                    Tech<span class="text-dark">ParaTodos</span>
+                </a>
+                
+                <!-- botão hamburguer celular -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+                        aria-controls="menu" aria-expanded="false" aria-label="Abrir ou fechar menu de navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <!-- links do menu -->
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#" aria-current="page">Início</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#cursos">Cursos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#depoimentos">Depoimentos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN = conteudo principal da pagina, o skip link leva pra ca -->
+    <main id="conteudo-principal">
+        
+        <!-- BANNER - a primeira coisa que a pessoa ve -->
+        <section class="bg-light py-5" aria-label="Banner de apresentação dos cursos">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <!-- h1 é o titulo mais importante da pagina, so pode ter um -->
+                        <h1 class="display-3 fw-bold">
+                            Tecnologia para 
+                            <span class="text-primary border-bottom border-success border-4">todos</span>
+                        </h1>
+                        <p class="lead mb-4">Cursos gratuitos, acessíveis e de qualidade para transformar seu futuro.</p>
+                        <!-- botoes de chamada pra ação -->
+                        <div class="d-flex gap-3">
+                            <a href="#cursos" class="btn btn-primary btn-lg px-4">Conheça os cursos</a>
+                            <a href="#depoimentos" class="btn btn-outline-primary btn-lg px-4">Depoimentos</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="imagens/Pessoas.png" 
+                             alt="Pessoas diversas estudando tecnologia em um ambiente colaborativo e inclusivo" 
+                             class="img-fluid rounded-4 shadow">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO CURSOS - cards com os 4 principais cursos -->
+        <section id="cursos" class="py-5" aria-labelledby="titulo-cursos">
+            <div class="container">
+                <h2 id="titulo-cursos" class="display-5 fw-bold text-center mb-5">Cursos em destaque</h2>
+                <div class="row g-4">
+                    <!-- CARD 1 - Programação Web -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="bg-white p-4 rounded-4 text-center h-100 border">
+                            <!-- bolinha verde com icone -->
+                            <div class="bg-success bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" 
+                                 style="width:70px;height:70px">
+                                <!-- icone decorativo, leitor de tela nao precisa ler -->
+                                <i class="fas fa-code fs-1 text-success" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="h4">Programação Web</h3>
+                            <p class="text-secondary">HTML, CSS, JS e Bootstrap. Projetos práticos.</p>
+                            <span class="badge bg-primary bg-opacity-10 text-primary p-2">60h • Início imediato</span>
+                            <a href="#" class="btn btn-primary w-100 mt-3">Saiba mais</a>
+                        </div>
+                    </div>
+                    <!-- CARD 2 - Introdução a Dados -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="bg-white p-4 rounded-4 text-center h-100 border">
+                            <div class="bg-success bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width:70px;height:70px">
+                                <i class="fas fa-database fs-1 text-success" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="h4">Introdução a Dados</h3>
+                            <p class="text-secondary">SQL, análise e visualização. Do zero ao dashboard.</p>
+                            <span class="badge bg-primary bg-opacity-10 text-primary p-2">40h • 2x semana</span>
+                            <a href="#" class="btn btn-primary w-100 mt-3">Saiba mais</a>
+                        </div>
+                    </div>
+                    <!-- CARD 3 - UX/Design Inclusivo -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="bg-white p-4 rounded-4 text-center h-100 border">
+                            <div class="bg-success bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width:70px;height:70px">
+                                <i class="fas fa-mobile-alt fs-1 text-success" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="h4">UX/Design Inclusivo</h3>
+                            <p class="text-secondary">Interfaces acessíveis e centradas no usuário.</p>
+                            <span class="badge bg-primary bg-opacity-10 text-primary p-2">50h • Online ao vivo</span>
+                            <a href="#" class="btn btn-primary w-100 mt-3">Saiba mais</a>
+                        </div>
+                    </div>
+                    <!-- CARD 4 - Lógica de Programação -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="bg-white p-4 rounded-4 text-center h-100 border">
+                            <div class="bg-success bg-opacity-10 rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width:70px;height:70px">
+                                <i class="fas fa-robot fs-1 text-success" aria-hidden="true"></i>
+                            </div>
+                            <h3 class="h4">Lógica de Programação</h3>
+                            <p class="text-secondary">Fundamentos com Python. Sem conhecimento prévio.</p>
+                            <span class="badge bg-primary bg-opacity-10 text-primary p-2">30h • Autoguiado</span>
+                            <a href="#" class="btn btn-primary w-100 mt-3">Saiba mais</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO DEPOIMENTOS -->
+        <section id="depoimentos" class="py-5 bg-light" aria-labelledby="titulo-depoimentos">
+            <div class="container">
+                <h2 id="titulo-depoimentos" class="display-5 fw-bold text-center mb-5">Quem aprendeu recomenda</h2>
+                <div class="row g-4">
+                    <!-- Depoimento 1 - Larissa -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="bg-white p-4 rounded-4 h-100 border">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="imagens/Larissa.jpg" 
+                                     alt="Boneco branco com fundo cinza e uma flor na cabeça"
+                                     class="rounded-circle me-3" 
+                                     width="64" 
+                                     height="64">
+                                <div>
+                                    <h3 class="h5 mb-1">Larissa Vieira</h3>
+                                    <span class="small text-success">Programação Web</span>
+                                </div>
+                            </div>
+                            <p class="fst-italic">"Rapaz é bom mesmo. Slk"</p>
+                            <!-- estrelas, coloquei o texto escondido pra leitor de tela ler -->
+                            <div class="text-warning" aria-label="Avaliação: 5 estrelas">★★★★★</div>
+                        </div>
+                    </div>
+                    <!-- Depoimento 2 - Matheus -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="bg-white p-4 rounded-4 h-100 border">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="imagens/Matheus.jpg" 
+                                     alt="Boneco branco com fundo cinza mostrando a lingua"  
+                                     class="rounded-circle me-3" 
+                                     width="64" 
+                                     height="64">
+                                <div>
+                                    <h3 class="h5 mb-1">Matheus Cavalcante</h3>
+                                    <span class="small text-success">UX/Design Inclusivo</span>
+                                </div>
+                            </div>
+                            <p class="fst-italic">"Achei bem mais ou menos, mais pra menos do que mais pra mais."</p>
+                            <div class="text-warning" aria-label="Avaliação: 2 estrelas">★★</div>
+                        </div>
+                    </div>
+                    <!-- Depoimento 3 - taíssa -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="bg-white p-4 rounded-4 h-100 border">
+                            <div class="d-flex align-items-center mb-3">
+                                <img src="imagens/Taissa.jpg" 
+                                     alt="Boneco branco com fundo cinza e cara de bravo"
+                                     class="rounded-circle me-3" 
+                                     width="64" 
+                                     height="64">
+                                <div>
+                                    <h3 class="h5 mb-1">Taíssa Moreira</h3>
+                                    <span class="small text-success">Introdução a Dados</span>
+                                </div>
+                            </div>
+                            <p class="fst-italic">"Muito Top! Esse tal Matheus que comentou ai é doido."</p>
+                            <div class="text-warning" aria-label="Avaliação: 5 estrelas">★★★★★</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ - footer -->
+    <footer id="contato" class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <!-- coluna 1: sobre a ONG -->
+                <div class="col-md-6 col-lg-4">
+                    <h3 class="h5 fw-bold">TechParaTodos</h3>
+                    <p class="small text-white-50">ONG de inclusão digital e formação tech gratuita.</p>
+                    <p class="small"><i class="fas fa-envelope me-2" aria-hidden="true"></i> contato@techparatodos.org</p>
+                    <p class="small"><i class="fas fa-phone me-2" aria-hidden="true"></i> (11) 99999-8888</p>
+                </div>
+                <!-- coluna 2: links rapidos -->
+                <div class="col-md-3 col-lg-2">
+                    <h4 class="h6 fw-bold">Links</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white-50 text-decoration-none">Sobre</a></li>
+                        <li><a href="#cursos" class="text-white-50 text-decoration-none">Cursos</a></li>
+                        <li><a href="#depoimentos" class="text-white-50 text-decoration-none">Depoimentos</a></li>
+                    </ul>
+                </div>
+                <!-- coluna 3: redes sociais -->
+                <div class="col-md-3 col-lg-3">
+                    <h4 class="h6 fw-bold">Redes</h4>
+                    <div class="d-flex gap-3">
+                        <!-- esses aria-label ajudam quem usa leitor de tela saber o que é cada icone -->
+                        <a href="#" class="text-white-50 fs-5" aria-label="Facebook da TechParaTodos">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-white-50 fs-5" aria-label="Instagram da TechParaTodos">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-white-50 fs-5" aria-label="LinkedIn da TechParaTodos">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-white-50 fs-5" aria-label="YouTube da TechParaTodos">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- coluna 4: badge de acessibilidade, pra mostrar que a gente se importa -->
+                <div class="col-lg-3">
+                    <div class="bg-white bg-opacity-10 p-3 rounded-3 border-start border-success border-4">
+                        <i class="fas fa-universal-access fs-4 me-2" aria-hidden="true"></i> 
+                        <span class="fw-bold">WCAG AA</span>
+                        <p class="small mt-2 mb-0 text-white-50">
+                            ✅ Contraste<br>
+                            ✅ Dá pra navegar com TAB<br>
+                            ✅ VLibras<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- copyright -->
+            <div class="text-center small text-white-50 mt-4 pt-4 border-top border-secondary">
+                © 2026 TechParaTodos. Inclusão digital para todos.
+            </div>
+        </div>
+    </footer>
+
+    <!-- script do bootstrap pro menu hamburguer funcionar -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

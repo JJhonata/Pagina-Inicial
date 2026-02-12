@@ -1,0 +1,103 @@
+/* 
+   CSS mais simples possivel, só o basico pra acessibilidade
+   Bootstrap ja fez 90% do trabalho, isso aqui é só ajuste fino
+*/
+
+/* cores que escolhi, testei contraste no coolors.co 
+   azul e verde passaram no teste de contraste, pode confiar */
+   :root {
+    --azul: #004080;     /* azul escuro, combina com tecnologia */
+    --verde: #2a6f4b;   /* verde mais fechado, passa seriedade */
+    --foco: #ffb347;    /* laranja pra quando a pessoa usa TAB */
+    --cinza: #2c3e50;   /* cinza azulado, bom pra texto longo */
+}
+
+/* fonte padrão do site */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: var(--cinza);
+    line-height: 1.6; /* espaço entre linhas, mais confortavel de ler */
+}
+
+/* PRA QUEM USA TECLADO */
+/* quando a pessoa navega com TAB, aparece essa borda laranja */
+:focus-visible {
+    outline: 3px solid var(--foco);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+/* SKIP LINK - PULAR MENU */
+/* fica escondido em cima da tela, aparece quando recebe foco */
+.visually-hidden.focusable {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    transition: transform 0.2s;
+}
+
+/* quando o link recebe foco, ele desce pra tela */
+.visually-hidden.focusable:focus {
+    transform: translateY(0) !important;
+    outline: 3px solid var(--foco);
+}
+
+/* LINKS */
+/* sublinhado pra nao depender so de cor */
+a {
+    color: var(--azul);
+    text-underline-offset: 0.2rem;
+    text-decoration-thickness: 0.1rem;
+}
+
+/* quando passa o mouse fica mais escuro */
+a:hover {
+    color: #002856;
+}
+
+/* BOTOES */
+.btn-primary {
+    background: var(--azul) !important;
+    border-color: var(--azul) !important;
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--azul) !important;
+    color: var(--azul) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background: var(--azul) !important;
+    color: white !important;
+}
+
+/* CORES DE FUNDO E TEXTO */
+.bg-success {
+    background-color: var(--verde) !important;
+}
+
+.text-success {
+    color: var(--verde) !important;
+}
+
+/* MENU ATIVO */
+.nav-link.active {
+    color: var(--azul) !important;
+    font-weight: 700;
+}
+
+/* RESPONSIVIDADE */
+/* celular: textos menores pra caber na tela */
+@media (max-width: 768px) {
+    .display-3 { font-size: 2.5rem; }
+    .display-5 { font-size: 1.8rem; }
+}
+
+/* espaçamento padrão pros textos */
+p, li, h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.2em;
+    margin-bottom: 0.8em;
+    line-height: 1.5;
+}
